@@ -1,0 +1,10 @@
+<launch>
+  <!-- Video Publisher Node -->
+  <node pkg="detect" type="video_pub.py" name="video_publisher_node" output="screen">
+    <!-- Pass parameters -->
+    <param name="video_source" value="/home/satvik/ros_course/src/ros_essentials_cpp/src/topic03_perception/video/tennis-ball-video.mp4"/>
+  </node>
+
+  <!-- Ball Detection Process Node -->
+  <node pkg="detect" type="process.py" name="detect_ball_node" output="screen" />
+</launch>
