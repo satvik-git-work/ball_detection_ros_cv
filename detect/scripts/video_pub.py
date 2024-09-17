@@ -13,7 +13,7 @@ if __name__ == '__main__':
     rospy.loginfo("node started")
     img_pub=rospy.Publisher("/input_video",Image,queue_size=10) #Publisher initialization
 
-    video_source=rospy.get_param('video_source','/home/satvik/ros_course/src/ros_essentials_cpp/src/topic03_perception/video/tennis-ball-video.mp4')
+    video_source=rospy.get_param('video_source','/home/satvik/football_detection/src/detect/video/tennis-ball-video.mp4')
     vid_cap=cv2.VideoCapture(video_source)
     rate = rospy.Rate(15) #Frequency: 15 FPS
 
