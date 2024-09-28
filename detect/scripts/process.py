@@ -37,7 +37,6 @@ def draw_ball_contour(binary_image, rgb_image, contours): #function that draws t
             cv2.drawContours(rgb_image, [c], -1, (150,250,150), 1)
             cx, cy = get_contour_center(c)
             cv2.circle(rgb_image, (cx,cy),(int)(radius),(0,0,255),1)
-            return rgb_image
     return rgb_image    
 
 def get_contour_center(contour): #function to extract the centroid of the countour detected
