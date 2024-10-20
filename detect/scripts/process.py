@@ -51,7 +51,7 @@ def get_contour_center(contour): #function to extract the centroid of the counto
 def detect_ball_in_a_frame(image_frame): #function that detects the ball using several image processing techniques
     yellowLower =(30, 100, 50)
     yellowUpper = (60, 255, 255)
-    rgb_image = image_frame
+    rgb_image = read_rgb_image(image_frame)
     binary_image_mask = filter_color(rgb_image, yellowLower, yellowUpper)
     contours = getContours(binary_image_mask)
     final_img=draw_ball_contour(binary_image_mask, rgb_image,contours)
