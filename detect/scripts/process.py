@@ -8,10 +8,6 @@ import numpy as np
 
 bridge = CvBridge() #using CvBridge for converting ROS img into CV compatible img and vice-versa
 
-def read_rgb_image(image_name): #Function to read a regular rgb image
-    rgb_image = cv2.imread(image_name)
-    return rgb_image
-
 def filter_color(rgb_image, lower_bound_color, upper_bound_color): #function that perfroms color filtering to generate a binary image
     #convert the image into the HSV color space
     hsv_image = cv2.cvtColor(rgb_image, cv2.COLOR_BGR2HSV)
@@ -51,7 +47,7 @@ def get_contour_center(contour): #function to extract the centroid of the counto
 def detect_ball_in_a_frame(image_frame): #function that detects the ball using several image processing techniques
     yellowLower =(30, 100, 50)
     yellowUpper = (60, 255, 255)
-    rgb_image = read_rgb_image(image_frame)
+    rgb_image = image_frame
     binary_image_mask = filter_color(rgb_image, yellowLower, yellowUpper)
     contours = getContours(binary_image_mask)
     final_img=draw_ball_contour(binary_image_mask, rgb_image,contours)
